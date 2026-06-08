@@ -1,4 +1,4 @@
-# Contribution [#]: [Issue Title]
+# Contribution [1]: [Add display of current value to slider parameters]
 
 **Contribution Number:** 1 
 **Student:** Prativa Khatiwada
