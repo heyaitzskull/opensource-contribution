@@ -8,9 +8,9 @@
 ---
 
 ## Why I Chose This Issue
+---
 
 I picked this issue because I enjoy working with JavaScript and the idea behind OpenJSCAD genuinely interests me. I think the open source project itself is a really cool concept, being able to easily produces a 3D printable object. I enjoy working with javascript as well and it would be interesting as well as a learning curve to explore this unfamilar codebase in order to provide a satisfying UX fix. Right now users can drag sliders to change model parameters but there's no number shown, so you're kind of just guessing. Adding a live value display makes the whole experience feel more intuitive, and that type of small improvement that makes something noticeably better. 
----
 
 ## Understanding the Issue
 
