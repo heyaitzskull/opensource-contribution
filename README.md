@@ -2,7 +2,7 @@
 
 **Contribution Number:** 1 
 **Student:** Prativa Khatiwada
-**Issue:** [GitHub issue link]  
+**Issue:** https://github.com/jscad/OpenJSCAD.org/issues/708
 **Status:** Phase I In Progress
 
 ---
