@@ -16,19 +16,16 @@ I picked this issue because I enjoy working with JavaScript and the idea behind 
 
 ### Problem Description
 
-[In your own words, what's broken or missing?]
-
+When a user loads a design with slider parameters (like the "All Parameter Types" example), they can drag the slider to change values but there is no number shown anywhere. You have no way of knowing what value you've actually set the parameter to.
 ### Expected Behavior
 
-[What should happen?]
-
+As the user moves a slider, the current numeric value should be displayed next to it and update in real time as the slider is dragged.
 ### Current Behavior
 
-[What actually happens?]
-
+The slider renders and can be moved, but no value is shown at any point — not on load, not while dragging, not after releasing.
 ### Affected Components
 
-[Which parts of the codebase are involved?]
+The main file to look at is packages/web/src/ui/views/parameterControls.js — this is where the web UI builds the HTML controls for each parameter type, including sliders. The fix will likely involve adding a <span> or similar element next to the <input type="range"> and wiring up an input event listener to update it as the slider moves.
 
 ---
 
@@ -36,13 +33,13 @@ I picked this issue because I enjoy working with JavaScript and the idea behind 
 
 ### Environment Setup
 
-[Notes on setting up your local development environment - challenges you faced, how you solved them]
+Clone the repo, navigate to packages/web, and copy the examples folder across. Then spin up a local web server in that directory (a simple npx serve . or python -m http.server works). No build step is needed to view the UI locally.
 
 ### Steps to Reproduce
 
-1. [Step 1]
-2. [Step 2]
-3. [Observed result]
+Open the web UI in a browser and load the "All Parameter Types" example from the examples dropdown
+Find the slider control in the parameter panel on the left
+Click and drag the slider — observe that no numeric value appears anywhere near it
 
 ### Reproduction Evidence
 
