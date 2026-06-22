@@ -25,7 +25,7 @@ As the user moves a slider, the current numeric value should be displayed next t
 The slider renders and can be moved, but value is not shown on load, while dragging, or after releasing.
 ### Affected Components
 
-The main file to look at is packages/web/src/ui/views/parameterControls.js — this is where the web UI builds the HTML controls for each parameter type, including sliders. The fix will likely involve adding a <span> or similar element next to the <input type="range"> and wiring up an input event listener to update it as the slider moves.
+The main file to look at is packages/web/src/ui/views/parameterControls.js where the web UI builds the HTML controls for each parameter type, including sliders. The fix will involve adding a <span> or similar element next to the <input type="range"> and wiring up an input event listener to update it as the slider moves.
 
 ---
 
