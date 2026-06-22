@@ -52,9 +52,9 @@ Clone the repo, navigate to packages/web, and copy the examples folder across. T
 
 ### Analysis
 
-The root cause is simply that when the slider HTML element is created in parameterControls.js, nothing is added alongside it to display its value. The <input type="range"> element exists and works, but the code never creates a text element next to it, and never listens for changes to update one. It's not a bug in the traditional sense — the feature just was never built out.
-### Proposed Solution
+The root cause is simply that when the slider HTML element is created in parameterControls.js, nothing is added alongside it to display its value. The <input type="range"> element exists and works, but the code never creates a numerical value next to it, and never listens for changes to update one. It's not a bug but rather a feature that is not yet built out in the project.
 
+### Proposed Solution
 When the slider control is created, add a small text element right next to it that shows the current value. Then attach an event listener to the slider so that every time the user moves it, that text element updates in real time.
 
 ### Implementation Plan
