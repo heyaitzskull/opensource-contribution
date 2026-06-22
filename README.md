@@ -3,7 +3,7 @@
 **Contribution Number:** 1 
 **Student:** Prativa Khatiwada
 **Issue:** https://github.com/jscad/OpenJSCAD.org/issues/708
-**Status:** Phase II In Progress
+**Status:** Phase III In Progress
 
 ---
 
@@ -43,9 +43,8 @@ Clone the repo, navigate to packages/web, and copy the examples folder across. T
 
 ### Reproduction Evidence
 
-- **Commit showing reproduction:** [Link to commit in your fork]
-- **Screenshots/logs:** [If applicable]
-- **My findings:** [What you discovered during reproduction]
+- **Commit showing reproduction:** N/A
+- **Screenshots/logs:** <img width="2443" height="1783" alt="image" src="https://github.com/user-attachments/assets/0ebdf1b8-65bd-426c-8045-b87bf65adb2b" />
 
 ---
 
@@ -53,24 +52,28 @@ Clone the repo, navigate to packages/web, and copy the examples folder across. T
 
 ### Analysis
 
-[Your analysis of the root cause - what's causing the issue?]
-
+The root cause is simply that when the slider HTML element is created in parameterControls.js, nothing is added alongside it to display its value. The <input type="range"> element exists and works, but the code never creates a text element next to it, and never listens for changes to update one. It's not a bug in the traditional sense — the feature just was never built out.
 ### Proposed Solution
 
-[High-level description of your fix approach]
+When the slider control is created, add a small text element right next to it that shows the current value. Then attach an event listener to the slider so that every time the user moves it, that text element updates in real time.
 
 ### Implementation Plan
-
 Using UMPIRE framework (adapted):
 
-**Understand:** [Restate the problem]
+**Understand**
+The slider is rendered in parameterControls.js as an <input type="range">. Users are able to drag it but there is no number shown that makes it difficult to know the exact value of their parameter.
 
-**Match:** [What similar patterns/solutions exist in the codebase?]
+**Match**
+Looking at the other input types in the same file (like number inputs or text inputs) are built, it will likely follow the same pattern of creating an element and wiring up an event listener. 
+I should make sure that the number addition is in same style so it fits consistently. 
 
-**Plan:** [Step-by-step implementation plan]
-1. [Modify file X to do Y]
-2. [Add function Z]
-3. [Update tests]
+**Plan**
+1. Open up packages/web/src/ui/views/parameterControls.js and find where the slider (input type="range") element is
+2. After that element is created, create an additional text element (likely a <span>) and set its initial value to the slider's default value
+3. Attach an input event listener to the slider that updates every time the slider moves
+4. Make sure the span and slider are placed together in the DOM so they render side by side
+5. Check the existing test files (*.test.js) to see if there are tests for parameter controls, and possibly add a test case that covers the value display updating on slider change
+6. Run npm test inside packages/web to confirm everything passes before pushing
 
 **Implement:** [Link to your branch/commits as you work]
 
